@@ -1,0 +1,450 @@
+'use client';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
+import { CalendarDays, Trash2, UserCircle } from 'lucide-react';
+
+const tasks = [
+  {
+    title: 'Art and Craft',
+    description:
+      'Select the role that you want to candidates for and upload your job description.',
+    date: 'Friday, April 19 – 2024',
+    status: 'Pending',
+    color: 'text-primary',
+    avatar: <UserCircle size={24} className="me-2" />,
+  },
+  {
+    title: 'Art and Craft',
+    description:
+      'Select the role that you want to candidates for and upload your job description.',
+    date: 'Friday, April 19 – 2024',
+    status: 'InProgress',
+    color: 'text-warning',
+    avatar: <UserCircle size={24} className="me-2" />,
+  },
+  {
+    title: 'Art and Craft',
+    description:
+      'Select the role that you want to candidates for and upload your job description.',
+    date: 'Friday, April 19 – 2024',
+    status: 'Done',
+    color: 'text-success',
+    avatar: <UserCircle size={24} className="me-2" />,
+  },
+];
+
+export default function TaskOne() {
+  return (
+    <Container fluid className="py-5 bg-light min-vh-100">
+      <div className="bg-white p-4 rounded shadow-sm">
+        <div className="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+          <h4 className="mb-0">All Task List</h4>
+          <div className="d-flex gap-3 flex-wrap">
+            <Form.Select className="w-auto">
+              <option>Select Task Category</option>
+            </Form.Select>
+            <Form.Select className="w-auto">
+              <option>All Task</option>
+            </Form.Select>
+            <Button variant="success">Add New Task</Button>
+          </div>
+        </div>
+
+        <Row xs={1} sm={2} md={3} className="g-4">
+          {tasks.map((task, idx) => (
+            <Col key={idx}>
+              <Card className="h-100 shadow-sm">
+                <Card.Body>
+                  <div className="d-flex justify-content-between align-items-center mb-2">
+                    <div className="d-flex align-items-center">
+                      {task.avatar}
+                      <Card.Title className="mb-0 fw-bold">{task.title}</Card.Title>
+                    </div>
+                    <Trash2 size={18} className="text-danger" role="button" title="Delete" />
+                  </div>
+                  <Card.Text className="text-muted small mb-2">
+                    {task.description}
+                  </Card.Text>
+                  <div className="d-flex justify-content-between align-items-center small">
+                    <div className="d-flex align-items-center">
+                      <CalendarDays size={16} className="me-1" />
+                      {task.date}
+                    </div>
+                    <span className={`fw-semibold ${task.color}`}>{task.status}</span>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </div>
+    </Container>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+   {/* <div className="col">
+                      <div className="card h-100">
+                        <div className="card-body">
+                          <div className="user-task-list-area">
+                            <div className="d-flex">
+                              <div className="user-task-list-svg">
+                                <BrickWall />
+                              </div>
+                              <div className="user-task-list">
+                                <div className="user-task-list-title d-flex align-items-center justify-content-between">
+                                  <Link href="#">Art and Craft</Link>
+                                  <Trash2 />
+                                </div>
+                                <p>
+                                  Select the role that you want to candidates
+                                  for and upload your job description.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="user-task-list-footer-area d-flex align-items-center justify-content-between">
+                            <div className="date d-flex align-items-center">
+                              <CalendarDays />
+                              <span>Friday, April 19 - 2024</span>
+                            </div>
+                            <div className="status pending d-flex align-items-center">
+                              <Dot />
+                              <span>Pending</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col">
+                      <div className="card h-100">
+                        <div className="card-body">
+                          <div className="user-task-list-area">
+                            <div className="d-flex">
+                              <div className="user-task-list-svg">
+                                <BrickWall />
+                              </div>
+                              <div className="user-task-list">
+                                <div className="user-task-list-title d-flex align-items-center justify-content-between">
+                                  <Link href="#">Art and Craft</Link>
+                                  <Trash2 />
+                                </div>
+                                <p>
+                                  Select the role that you want to candidates
+                                  for and upload your job description.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="user-task-list-footer-area d-flex align-items-center justify-content-between">
+                            <div className="date d-flex align-items-center">
+                              <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-m4D7gaOaHMGxxheIp_xF_OSzrba6G7MIA&s"
+                                alt=""
+                              />
+                              <span>Friday, April 19 - 2024</span>
+                            </div>
+                            <div className="status inprogress d-flex align-items-center">
+                              <Dot />
+                              <span>InProgress</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col">
+                      <div className="card h-100">
+                        <div className="card-body">
+                          <div className="user-task-list-area">
+                            <div className="d-flex">
+                              <div className="user-task-list-svg">
+                                <BrickWall />
+                              </div>
+                              <div className="user-task-list">
+                                <div className="user-task-list-title d-flex align-items-center justify-content-between">
+                                  <Link href="#">Art and Craft</Link>
+                                  <Trash2 />
+                                </div>
+                                <p>
+                                  Select the role that you want to candidates
+                                  for and upload your job description.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="user-task-list-footer-area d-flex align-items-center justify-content-between">
+                            <div className="date d-flex align-items-center">
+                              <CalendarDays />
+                              <span>Friday, April 19 - 2024</span>
+                            </div>
+                            <div className="status done d-flex align-items-center">
+                              <Dot />
+                              <span>Done</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col">
+                      <div className="card h-100">
+                        <div className="card-body">
+                          <div className="user-task-list-area">
+                            <div className="d-flex">
+                              <div className="user-task-list-svg">
+                                <BrickWall />
+                              </div>
+                              <div className="user-task-list">
+                                <div className="user-task-list-title d-flex align-items-center justify-content-between">
+                                  <Link href="#">Art and Craft</Link>
+                                  <Trash2 />
+                                </div>
+                                <p>
+                                  Select the role that you want to candidates
+                                  for and upload your job description.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="user-task-list-footer-area d-flex align-items-center justify-content-between">
+                            <div className="date d-flex align-items-center">
+                              <CalendarDays />
+                              <span>Friday, April 19 - 2024</span>
+                            </div>
+                            <div className="status pending d-flex align-items-center">
+                              <Dot />
+                              <span>Pending</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col">
+                      <div className="card h-100">
+                        <div className="card-body">
+                          <div className="user-task-list-area">
+                            <div className="d-flex">
+                              <div className="user-task-list-svg">
+                                <BrickWall />
+                              </div>
+                              <div className="user-task-list">
+                                <div className="user-task-list-title d-flex align-items-center justify-content-between">
+                                  <Link href="#">Art and Craft</Link>
+                                  <Trash2 />
+                                </div>
+                                <p>
+                                  Select the role that you want to candidates
+                                  for and upload your job description.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="user-task-list-footer-area d-flex align-items-center justify-content-between">
+                            <div className="date d-flex align-items-center">
+                              <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-m4D7gaOaHMGxxheIp_xF_OSzrba6G7MIA&s"
+                                alt=""
+                              />
+                              <span>Friday, April 19 - 2024</span>
+                            </div>
+                            <div className="status inprogress d-flex align-items-center">
+                              <Dot />
+                              <span>InProgress</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col">
+                      <div className="card h-100">
+                        <div className="card-body">
+                          <div className="user-task-list-area">
+                            <div className="d-flex">
+                              <div className="user-task-list-svg">
+                                <BrickWall />
+                              </div>
+                              <div className="user-task-list">
+                                <div className="user-task-list-title d-flex align-items-center justify-content-between">
+                                  <Link href="#">Art and Craft</Link>
+                                  <Trash2 />
+                                </div>
+                                <p>
+                                  Select the role that you want to candidates
+                                  for and upload your job description.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="user-task-list-footer-area d-flex align-items-center justify-content-between">
+                            <div className="date d-flex align-items-center">
+                              <CalendarDays />
+                              <span>Friday, April 19 - 2024</span>
+                            </div>
+                            <div className="status done d-flex align-items-center">
+                              <Dot />
+                              <span>Done</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div> */}
+
+
+
+
+
+
+
+
+
+
+                     {/* <div className="task-header">
+              <div className="row">
+                <div className="col-6">
+                  <div className="d-flex aligin-items-center justify-content-between">
+                    <div className="logo">
+                      <Link href="">
+                        <Clock12 size={30} /> Tasko
+                      </Link>
+                    </div>
+
+                    <div className="d-flex aligin-items-center justify-content-between">
+                      <Link href="" className="active">
+                        <BookCheck size={30} /> Task Lists
+                      </Link>
+                      <Link href="">
+                        <LoaderPinwheel size={30} /> Spin
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-6 text-end">
+                  <div
+                    ref={menuRef}
+                    className="relative inline-block text-left"
+                  ></div>
+                  <div className="profile-dropdown-menu-area " ref={menuRef}>
+                    <div className="profile" onClick={toggleDropdown}>
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-m4D7gaOaHMGxxheIp_xF_OSzrba6G7MIA&s" />
+                      <h5>
+                        Iqbal Hossen
+                        <ChevronDown
+                          className={`ms-2 profile-menu-chevron ${
+                            isOpen ? "profile-menu-chevron-rotate" : ""
+                          }`}
+                        />
+                      </h5>
+                    </div>
+
+                    {isOpen && (
+                      <div className={`menu active`}>
+                        <h3>
+                          Someone Famous
+                          <br />
+                          <span>Website Designer</span>
+                        </h3>
+                        <ul>
+                          <li>
+                            <Link href="/afag">
+                              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-m4D7gaOaHMGxxheIp_xF_OSzrba6G7MIA&s" />
+                              My profile
+                            </Link>
+                          </li>
+
+                          <li>
+                            <img src="./assets/icons/log-out.png" />
+                            <button> Logout</button>
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div> */}
+
+
+
+
+
+
+
+               {/* <div className="task-header">
+              <div className="row">
+                <div className="col-6">
+                  <div className="d-flex aligin-items-center justify-content-between">
+                    <div className="logo">
+                      <Link href="">
+                        <Clock12 size={30} /> Tasko
+                      </Link>
+                    </div>
+
+                    <div className="d-flex aligin-items-center justify-content-between">
+                      <Link href="" className="active">
+                        <BookCheck size={30} /> Task Lists
+                      </Link>
+                      <Link href="">
+                        <LoaderPinwheel size={30} /> Spin
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-6 text-end">
+                  <div
+                    ref={menuRef}
+                    className="relative inline-block text-left"
+                  ></div>
+                  <div className="profile-dropdown-menu-area " ref={menuRef}>
+                    <div className="profile" onClick={toggleDropdown}>
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-m4D7gaOaHMGxxheIp_xF_OSzrba6G7MIA&s" />
+                      <h5>
+                        Iqbal Hossen
+                        <ChevronDown
+                          className={`ms-2 profile-menu-chevron ${
+                            isOpen ? "profile-menu-chevron-rotate" : ""
+                          }`}
+                        />
+                      </h5>
+                    </div>
+
+                    {isOpen && (
+                      <div className={`menu active`}>
+                        <h3>
+                          Someone Famous
+                          <br />
+                          <span>Website Designer</span>
+                        </h3>
+                        <ul>
+                          <li>
+                            <Link href="/afag">
+                              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-m4D7gaOaHMGxxheIp_xF_OSzrba6G7MIA&s" />
+                              My profile
+                            </Link>
+                          </li>
+
+                          <li>
+                            <img src="./assets/icons/log-out.png" />
+                            <Logout />
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="task-header-body">
+                <p>Hi Md. Iqbal Hossen</p>
+                <h2>Welcome to Dashboard</h2>
+              </div>
+            </div> */}
