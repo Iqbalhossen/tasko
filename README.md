@@ -4,11 +4,11 @@ A full-stack task management application built with **Next.js**, **Express.js**,
 
 ---
 
-## 📦 Tech Stack
+#####  Live site Problem
 
- live Netlify and Render Server site is **not rendering properly**, 
+ ----live Netlify and Render Server site is **not rendering properly**, 
 
-## 📦 Tech Stack
+
 
 ## 📦 Tech Stack
 
