@@ -6,6 +6,12 @@ A full-stack task management application built with **Next.js**, **Express.js**,
 
 ## 📦 Tech Stack
 
+ live Netlify and Render Server site is **not rendering properly**, 
+
+## 📦 Tech Stack
+
+## 📦 Tech Stack
+
 ### Frontend
 - Next.js `15.4.4`
 - React `19.1.0`
