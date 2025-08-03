@@ -8,7 +8,7 @@ const generateToken = (res, userId) => {
   res.cookie("assignment_token", token, {
     // https only
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: true,
     sameSite: "None", 
     // ********https only  end
 
