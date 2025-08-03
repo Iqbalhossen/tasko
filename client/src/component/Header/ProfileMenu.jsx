@@ -26,7 +26,7 @@ export default function ProfileMenu() {
   return (
     <>
       <div className="">
-        <div ref={menuRef} className="relative inline-block text-left"></div>
+        <div ref={menuRef} className=" inline-block text-left"></div>
         <div className="profile-dropdown-menu-area " ref={menuRef}>
           <div className="profile" onClick={toggleDropdown}>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-m4D7gaOaHMGxxheIp_xF_OSzrba6G7MIA&s" />

@@ -20,6 +20,7 @@ import {
 import { useRouter } from "next/navigation";
 import { use, useEffect, useRef, useState } from "react";
 import dateFormat from "dateformat";
+import CustomLoader from "@/component/Loader/Loader";
 const AllTask = [
   { task_status_id: 5, task_status: "All Task" },
   { task_status_id: 2, task_status: "Ongoing" },
@@ -172,7 +173,13 @@ export default function TaskDetails({ params }) {
 
                 <hr />
 
-                <div className="user-task-details-area">
+                <div className="user-task-details-area position-relative">
+                  {isFetching && (
+                    <>
+                      <CustomLoader />
+                    </>
+                  )}
+
                   <div className="d-flex">
                     <div className="left-icon">
                       <BrickWall />

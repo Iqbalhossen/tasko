@@ -60,7 +60,7 @@ export default function DashboardHeader() {
           <div className="col-6 text-end desktop-header">
             <div
               ref={menuRef}
-              className="relative inline-block text-left"
+              className=" inline-block text-left"
             ></div>
             <div className="profile-dropdown-menu-area " ref={menuRef}>
               <div className="profile" onClick={toggleDropdown}>
@@ -96,7 +96,7 @@ export default function DashboardHeader() {
           </div>
         </div>
         <div className="task-header-body">
-          <p>Hi Md. Iqbal Hossen</p>
+          <p>Hi {userInfo?.name}</p>
           <h2>Welcome to Dashboard</h2>
         </div>
       </div>

@@ -18,6 +18,7 @@ import {
 import DashboardHeader from "@/component/Header/DashboardHeader";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import CustomPagination from "@/component/CustomPagination/CustomPagination";
+import CustomLoader from "@/component/Loader/Loader";
 
 export default function Dashboard() {
   const { userInfo, token } = useSelector((state) => state.auth);
@@ -27,7 +28,6 @@ export default function Dashboard() {
   const page = searchQueryParams.get("page");
   const name = searchQueryParams.get("name");
   const status = searchQueryParams.get("status");
-
 
   const {
     data: TaskData,
@@ -73,7 +73,7 @@ export default function Dashboard() {
 
     // console.log("Filter applied:", query.toString());
   };
-// console.log(TaskData)
+  // console.log(TaskData)
   if (isLoading) {
     return (
       <>
@@ -125,7 +125,13 @@ export default function Dashboard() {
                 </div>
 
                 <div className="user-task-lists">
-                  <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+                  <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 position-relative">
+                    {isFetching || DeleteisLoading && (
+                      <>
+                        <CustomLoader />
+                      </>
+                    )}
+
                     {TaskData?.data?.length !== 0 ? (
                       TaskData?.data.map((data, index) => {
                         if (data) {
@@ -149,11 +155,10 @@ export default function Dashboard() {
                         </div>
                       </>
                     )}
-
                   </div>
-                    {/* paginateLinks */}
-            <CustomPagination data={TaskData}></CustomPagination>
-            {/* paginateLinks */}
+                  {/* paginateLinks */}
+                  <CustomPagination data={TaskData}></CustomPagination>
+                  {/* paginateLinks */}
                 </div>
               </div>
             </div>

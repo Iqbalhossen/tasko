@@ -4,8 +4,11 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import ProfileMenu from "./ProfileMenu";
+import { useSelector } from "react-redux";
+import Logout from "../Logout/Logout";
 
 export default function Header({ params }) {
+    const { userInfo, token } = useSelector((state) => state.auth);
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef();
   useEffect(() => {
@@ -51,13 +54,13 @@ export default function Header({ params }) {
           <div className="col-6 text-end desktop-header">
             <div
               ref={menuRef}
-              className="relative inline-block text-left"
+              className=" inline-block text-left"
             ></div>
             <div className="profile-dropdown-menu-area " ref={menuRef}>
               <div className="profile" onClick={toggleDropdown}>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-m4D7gaOaHMGxxheIp_xF_OSzrba6G7MIA&s" />
                 <h5 className="desktop-header">
-                  Iqbal Hossen
+                  {userInfo?.name}
                   <ChevronDown
                     className={`ms-2 profile-menu-chevron ${
                       isOpen ? "profile-menu-chevron-rotate" : ""
@@ -69,9 +72,7 @@ export default function Header({ params }) {
               {isOpen && (
                 <div className={`menu active`}>
                   <h3>
-                    Someone Famous
-                    <br />
-                    <span>Website Designer</span>
+                   {userInfo?.name}
                   </h3>
                   <ul>
                     <li>
@@ -81,10 +82,7 @@ export default function Header({ params }) {
                       </Link>
                     </li>
 
-                    <li>
-                      <img src="./assets/icons/log-out.png" />
-                      <button> Logout</button>
-                    </li>
+                    <Logout />
                   </ul>
                 </div>
               )}

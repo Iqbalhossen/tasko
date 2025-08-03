@@ -19,6 +19,10 @@ app.use(bodyParser.json({ limit: "200mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+});
+
 ///////////////  route middleware
 const UserRoutes = require("./routes/user.routes");
 const TaskRoutes = require("./routes/task.routes");

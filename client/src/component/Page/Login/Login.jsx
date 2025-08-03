@@ -52,6 +52,8 @@ export default function LoginPage() {
 
   return (
     <>
+   
+
       <div className="auth-section">
         <div className="container-fluid custom-row-p-0">
           <div className="row vh-100">
