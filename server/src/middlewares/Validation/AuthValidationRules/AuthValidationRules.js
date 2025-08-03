@@ -17,7 +17,7 @@ const UserSignupValidationRules = () => {
     body("full_name")
       .trim()
       .notEmpty()
-      .withMessage("First name field is required"),
+      .withMessage("Full name field is required"),
 
     body("email")
       .notEmpty()
