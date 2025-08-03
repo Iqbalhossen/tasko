@@ -6,9 +6,28 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 
 app.use(helmet());
+
+
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     callback(null, origin || "*");
+//   },
+//   credentials: true,
+// };
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://tasko-abc.netlify.app",
+];
+
+
 const corsOptions = {
   origin: function (origin, callback) {
-    callback(null, origin || "*");
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
   },
   credentials: true,
 };

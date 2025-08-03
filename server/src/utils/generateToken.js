@@ -9,7 +9,7 @@ const generateToken = (res, userId) => {
     // https only
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "Lax", 
+    sameSite: "None", 
     // ********https only  end
 
     // ********local only  end
@@ -17,7 +17,6 @@ const generateToken = (res, userId) => {
     // secure: false,
     // sameSite: "strict",
 
-    path: "/",
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   });
   return token;
